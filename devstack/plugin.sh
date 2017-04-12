@@ -264,17 +264,6 @@ if [[ "$1" == "stack" && "$2" == "source" ]]; then
     #FIXME: workaround ifmap-server package issue (doesn't creates /etc/contrail but needs it to start)
     sudo mkdir -p /etc/contrail
 
-    # Set packages specific to the release
-    awk -i inplace -v os_RELEASE=$os_RELEASE '{
-        condition=match($0, /[[:space:]]#[[:space:]][0-9]{2}\.[0-9]{2}$/)
-        if(condition) {
-            if($3 == os_RELEASE) {
-                print $0
-            }
-        } else {
-            print $0
-        }
-    }' $CONTRAIL_PLUGIN_DIR/files/debs/contrail
 
 elif [[ "$1" == "stack" && "$2" == "pre-install" ]]; then
     # Called afer pip requirements installation
