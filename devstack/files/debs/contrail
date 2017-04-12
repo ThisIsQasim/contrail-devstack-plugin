@@ -39,7 +39,6 @@ libzookeeper-mt-dev
 
 #cassandra-driver
 
-libtool-bin # 16.04
 
 #in opencontrail ppa
 libipfix-dev
